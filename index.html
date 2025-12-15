@@ -1,0 +1,166 @@
+<!DOCTYPE html><html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>OLD Oxide — Скачать APK</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0f0f0f;
+      color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }.container {
+  max-width: 900px;
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 30px;
+  line-height: 1.4;
+}
+
+.download-btn {
+  display: inline-block;
+  padding: 18px 40px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #000;
+  background: linear-gradient(90deg, #9bff00, #c6ff3d);
+  border-radius: 14px;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  animation: pulse 2s infinite;
+  box-shadow: 0 0 25px rgba(155, 255, 0, 0.6);
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 15px rgba(155,255,0,0.4); }
+  50% { box-shadow: 0 0 35px rgba(155,255,0,1); }
+  100% { box-shadow: 0 0 15px rgba(155,255,0,0.4); }
+}
+
+.download-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.4);
+  transform: skewX(-20deg);
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  0% { left: -100%; }
+  50% { left: 100%; }
+  100% { left: 100%; }
+}
+
+.download-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 35px rgba(155, 255, 0, 0.9);
+}
+
+.screenshots {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.screenshots img {
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+}
+
+.hint {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #aaaaaa;
+}
+
+/* Оверлей для просмотра скриншотов */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.overlay img {
+  max-width: 95%;
+  max-height: 95%;
+  border-radius: 10px;
+  touch-action: pinch-zoom;
+}
+
+.overlay.active {
+  display: flex;
+}
+
+  </style>
+</head>
+<body>
+  <div class="overlay" id="overlay" onclick="closeOverlay()">
+    <img id="overlayImg" src="" alt="Просмотр скриншота" />
+  </div>
+  <div class="container">
+    <h1>
+      OLD Oxide — Это не просто игра, это игра где ты можешь сделать свой первый и последний шаг
+    </h1><!-- Ссылка на APK -->
+<a href="APK/OLD_Oxide.apk" class="download-btn" download onclick="return checkAndroid()">
+  Скачать OLD Oxide
+</a>
+
+<div class="hint">
+  Версия для Android (APK)
+</div>
+
+<!-- Скриншоты -->
+<div class="screenshots">
+  <!-- Замените src на свои изображения -->
+  <img src="IMG/screenshot1.jpg" alt="Скриншот 1" onclick="openOverlay(this.src)" />
+  <img src="IMG/screenshot2.jpg" alt="Скриншот 2" onclick="openOverlay(this.src)" />
+  <img src="IMG/screenshot3.jpg" alt="Скриншот 3" onclick="openOverlay(this.src)" />
+</div>
+
+  </div>
+  <script>
+    function checkAndroid() {
+      const ua = navigator.userAgent.toLowerCase();
+      if (!ua.includes('android')) {
+        alert('Скачивание доступно только на Android устройствах');
+        return false;
+      }
+      return true;
+    }function openOverlay(src) {
+  const overlay = document.getElementById('overlay');
+  const img = document.getElementById('overlayImg');
+  img.src = src;
+  overlay.classList.add('active');
+}
+
+function closeOverlay() {
+  document.getElementById('overlay').classList.remove('active');
+}
+
+  </script>
+</body>
+</html>
